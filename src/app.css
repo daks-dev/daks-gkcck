@@ -1,0 +1,126 @@
+@import 'daks-svelte/fonts/open-sans/variable';
+@import 'daks-svelte/tailwindcss';
+
+@layer base {
+  :root {
+    --navbar-height: 44px;
+  }
+
+  body {
+    @apply relative font-normal
+           text-gray-800 dark:text-neutral-200
+           bg-neutral-100 dark:bg-gray-800
+           transition-colors duration-300 ease-in-out
+           -lg:snap-start;
+  }
+
+  h1 {
+    @apply uppercase tracking-wide
+           text-2xl sm:text-2.5xl md:text-3xl lg:text-3.5xl
+           text-gray-500 dark:text-gray-300;
+  }
+
+  section h1 {
+    @apply text-2xl sm:text-2.5xl md:text-3xl lg:text-3.5xl
+           text-rose-700 dark:text-red-600;
+  }
+
+  h2 {
+    @apply tracking-wide
+           text-2.5xl sm:text-3xl md:text-3.5xl lg:text-4xl
+           text-slate-700 dark:text-slate-500;
+  }
+
+  section h2 {
+    @apply text-xl sm:text-1.5xl md:text-2xl lg:text-2.5xl
+           text-rose-700 dark:text-red-600;
+  }
+
+  h3 {
+    @apply text-1.5xl sm:text-2xl md:text-2.5xl lg:text-3xl
+           text-slate-800 dark:text-slate-400;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+}
+
+@layer utilities {
+  .min-h-screen--navbar {
+    min-height: calc(100vh - var(--navbar-height));
+  }
+  .max-h-screen--navbar {
+    max-height: calc(100vh - var(--navbar-height));
+  }
+
+  .snap-start,
+  .snap-center {
+    scroll-margin-top: var(--navbar-height);
+  }
+
+  .accent {
+    @apply text-rose-700 dark:text-red-600;
+  }
+  hr.accent {
+    @apply border-rose-700 dark:border-red-600;
+  }
+
+  ul.accent {
+    @apply list-none pl-0 indent-0 text-inherit dark:text-inherit;
+  }
+  ul.accent li {
+    @apply relative ml-6
+           before:content-['\25B7']
+           before:absolute before:-left-6 before:-top-0.5
+           before:text-rose-700 dark:before:text-red-600 before:font-bold;
+  }
+
+  .drop-shadow--accent {
+    filter: drop-shadow(0 4px 3px rgb(128 8 8 / 0.4)) drop-shadow(0 2px 2px rgb(128 8 8 / 0.2));
+  }
+  
+  .title {
+    @apply after:content-null after:block after:mt-2
+           after:w-[20vw] xs:after:w-[15vw] sm:after:w-[10vw] xl:after:w-[7vw] after:h-[5px]
+           after:bg-cyan-600 after:dark:bg-cyan-700;
+  }
+}
+
+main,
+[role='main'] {
+  @apply flex flex-col mb-4;
+  padding-top: var(--navbar-height);
+}
+main > header,
+[role='main'] > header {
+  @apply pt-4 sm:pt-5 md:pt-8
+         mb-12 lg:mb-14;
+}
+
+/* home */
+.text-shadow--home {
+  text-shadow: 7px 7px 14px #777;
+}
+.dark .text-shadow--home {
+  text-shadow: 7px 7px 14px #000;
+}
+.bg--pattern {
+  @apply bg-[url($lib/assets/images/patterns/linen.png)] dark:bg-none;
+}
+
+/* laboratory-support */
+.table--custom tr {
+  @apply border dark:border-gray-700 even:bg-gray-200/70 dark:even:bg-gray-700/30;
+}
+.table--custom th {
+  @apply p-2 sm:p-2 font-semibold;
+}
+.table--custom td {
+  @apply p-1 sm:p-2 border dark:border-gray-700;
+}
+
+/* Yandex */ 
+.ymaps--left-copyright .ymaps-2-1-79-copyright {
+  float: left;
+}

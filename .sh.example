@@ -1,0 +1,55 @@
+#!/bin/bash
+
+ac="yes";
+until [ $ac = "-" ]; do
+    echo -e "";
+    echo -e "+ : Git:pull";
+    echo -e "";
+    echo -e "1 : npm:install";
+    echo -e "2 : npm:update";
+    echo -e "";
+    echo -e "4 : svelte:check";
+    echo -e "5 : vite:build";
+    echo -e "";
+    echo -e "7 : Git:status";
+    echo -e "";
+    echo -e "0 : clean";
+    echo -e "";
+    echo -e "n : ▼ nginx";
+    echo -e "";
+    echo -e "Type \c ";
+    read  ac;
+    case $ac in
+        "+")
+            echo -e "> Git:pull";
+            git pull;;
+
+        "1")
+            echo -e "> npm:install";
+            npm install;;
+
+        "2")
+            echo -e "> npm:update";
+            npm update;;
+
+        "4")
+            echo -e "> svelte:check";
+            npm run check;;
+
+        "5")
+            echo -e "> vite:build";
+            npm run build;;
+
+        "7")
+            echo -e "> Git:status";
+            git status;;
+
+        "0")
+            echo -e "> clean";
+            rm -rf .svelte-kit/{*,.*};
+            rm -rf build/{*,.*};
+            rm -rf node_modules/{*,.*};
+            rm -f package-lock.json;;
+    esac
+done
+echo -e "";

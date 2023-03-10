@@ -1,0 +1,10 @@
+const dataset: any[] = [];
+import dataset_00000 from './001.png?webp';
+dataset.push(dataset_00000);
+import dataset_00001 from './002.png?webp';
+dataset.push(dataset_00001);
+import dataset_00002 from './003.png?webp';
+dataset.push(dataset_00002);
+import dataset_00003 from './004.png?webp';
+dataset.push(dataset_00003);
+export { dataset };
