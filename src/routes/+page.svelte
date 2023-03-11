@@ -83,7 +83,7 @@
         {partners}
         controls=""
         duration={500}
-        delay={5000}
+        delay={3500}
         stream />
       <div class="readable text-justify">
         <p>

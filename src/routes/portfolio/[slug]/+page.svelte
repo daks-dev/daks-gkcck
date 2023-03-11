@@ -66,24 +66,7 @@
     class="
       wrapper mb-8
       flex -md:flex-col justify-around gap-8">
-    <div class="mb-8">
-      {#if customer}
-        <a
-          class="hover:drop-shadow-md"
-          href="/partners/{customer.id.toString().padStart(3, '0')}">
-          <Figure
-            class="hidden md:flex mb-8"
-            custom={{ image: 'border border-slate-400 drop-shadow' }}
-            data={logotypes[customer.id - 1]} />
-          <h3 class="md:hidden mb-8 accent">{customer.name}</h3>
-        </a>
-      {:else}
-        <img
-          class="h-24 sm:h-32 md:h-40 w-auto max-w-none mb-8 drop-shadow--deep"
-          src={logo}
-          alt="" />
-      {/if}
-
+    <div class="flex flex-col gap-4 md:gap-8">
       <dl class="flex flex-col gap-y-4">
         {#if address}
           <div class="flex gap-x-2">
@@ -126,6 +109,23 @@
           <div>{note}</div>
         {/if}
       </dl>
+
+      {#if customer}
+        <a
+          class="hover:drop-shadow-md"
+          href="/partners/{customer.id.toString().padStart(3, '0')}">
+          <Figure
+            class="hidden md:flex"
+            custom={{ image: 'border border-slate-400 drop-shadow' }}
+            data={logotypes[customer.id - 1]} />
+          <h3 class="md:hidden accent">{customer.name}</h3>
+        </a>
+      {:else}
+        <img
+          class="h-24 sm:h-32 md:h-40 w-auto max-w-none drop-shadow--deep"
+          src={logo}
+          alt="" />
+      {/if}
     </div>
 
     <LightboxKit

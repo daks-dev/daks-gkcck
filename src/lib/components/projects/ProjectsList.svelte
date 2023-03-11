@@ -1,5 +1,4 @@
 <script lang="ts">
-  import classNames from 'classnames';
   import { blur, fade } from 'svelte/transition';
   import { sineIn, sineOut } from 'svelte/easing';
   import { beforeUpdate, afterUpdate } from 'svelte';
@@ -9,27 +8,27 @@
 
   export let projects: Project[];
   export let mode = 0;
-  export let aside = false;
-  export let toggle = () => false;
-
 
   let innerWidth: number;
-  $: map = innerWidth >= 640;
-  $: zoom =
-    (innerWidth < 768 && 10) || (innerWidth < 1024 && 10.3) || (innerWidth < 1280 && 10) || 10.3;
+  $: mapper = innerWidth >= 640;
+  $: zoom = 10;
+    // (innerWidth < 768 && 10) || (innerWidth < 1024 && 10.3) || (innerWidth < 1280 && 10) || 10.3;
 
   const transition = {
     in: { duration: 300, delay: 100, amount: 5, easing: sineIn },
     out: { duration: 200, easing: sineOut }
   };
 
-  beforeUpdate(() => mode === 2 && (mode = aside ? 1 : map ? 2 : 0));
-  afterUpdate(() => document?.lazyload.update());
+  beforeUpdate(() => mode === 2 && (mode = mapper ? 2 : 0));
+  afterUpdate(() => mode || document?.lazyload.update());
 </script>
 
 <svelte:window bind:innerWidth />
 
-<div class={classNames(aside || 'content', 'mb-4 flex items-center gap-4')}>
+<div
+  class="
+    content mb-4
+    flex items-center gap-4">
   <span class="p-1.5 mr-auto">[{projects.length}]</span>
   <button
     on:click={() => (mode = 0)}
@@ -56,10 +55,7 @@
       size="1.5em" />
   </button>
   <button
-    on:click={() => {
-      mode = 2;
-      if (aside) aside = toggle();
-    }}
+    on:click={() => (mode = 2)}
     class="
       hidden sm:block
       p-1.5 rounded
@@ -77,8 +73,9 @@
   <div
     in:blur={transition.in}
     out:fade={transition.out}
-    class="flex flex-wrap justify-center gap-8"
-    class:wrapper={!aside}>
+    class="
+      wrapper
+      flex flex-wrap justify-center gap-8">
     {#each projects as { id, name, address }}
       {@const image = images[id - 1]}
       {@const data = { ...image, title: name, description: address }}
@@ -109,29 +106,24 @@
   <div
     in:blur={transition.in}
     out:fade={transition.out}
-    class="flex flex-col"
-    class:content={!aside}>
+    class="
+      content
+      flex flex-col">
     {#each projects as { id, name, address, area, area_unit }, idx}
       <a
-        class={classNames(
-          'px-2 py-4',
-          aside
-            ? 'grid grid-cols-[32px_minmax(0,_1fr)]'
-            : 'grid grid-cols-[32px_minmax(0,_1fr)_96px] md:grid-cols-[32px_256px_minmax(0,_1fr)_96px]',
-          'items-center',
-          'odd:bg-slate-400/25 dark:even:bg-slate-700/25',
-          'hover:bg-slate-400 dark:hover:bg-slate-700'
-        )}
+        class="
+          px-2 py-4
+          grid grid-cols-[32px_minmax(0,_1fr)_96px] md:grid-cols-[32px_256px_minmax(0,_1fr)_96px] items-center
+          odd:bg-slate-400/25 dark:even:bg-slate-700/25
+          hover:bg-slate-400 dark:hover:bg-slate-700"
         href={`/portfolio/${id.toString().padStart(3, '0')}`}>
         <small>{idx + 1}</small>
-        <span class={classNames('accent', aside || '-xs:col-span-2')}>{name}</span>
-        {#if !aside}
-          <small class="-md:hidden">{address}</small>
-          <span class="-xs:hidden text-right">
-            {Number(area).toLocaleString()}
-            {@html area_unit || 'м<sup>2</sup>'}
-          </span>
-        {/if}
+        <span class="accent -xs:col-span-2">{name}</span>
+        <small class="-md:hidden">{address}</small>
+        <span class="-xs:hidden text-right">
+          {Number(area).toLocaleString()}
+          {@html area_unit || 'м<sup>2</sup>'}
+        </span>
       </a>
     {/each}
   </div>
