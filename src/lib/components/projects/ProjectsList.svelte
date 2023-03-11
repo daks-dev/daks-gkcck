@@ -3,7 +3,7 @@
   import { sineIn, sineOut } from 'svelte/easing';
   import { beforeUpdate, afterUpdate } from 'svelte';
   import { Icon, Figure } from 'daks-svelte';
-  import { YandexMap } from '$lib/components';
+  import { Sign, YandexMap } from '$lib/components';
   import { squares as images } from '$lib/content/portfolio/images';
 
   export let projects: Project[];
@@ -83,8 +83,9 @@
       {@const image = images[id - 1]}
       {@const data = { ...image, title: name, description: address }}
       <a
-        class="group"
+        class="relative group"
         href={`/portfolio/${id.toString().padStart(3, '0')}`}>
+        <Sign class="top-2 left-2" />
         <Figure
           class="
             overflow-hidden
@@ -115,13 +116,17 @@
     {#each projects as { id, name, address, area, area_unit }, idx}
       <a
         class="
-          px-2 py-4
+          group px-2 py-4
           grid grid-cols-[32px_minmax(0,_1fr)_96px] md:grid-cols-[32px_256px_minmax(0,_1fr)_96px] items-center
           odd:bg-slate-400/25 dark:even:bg-slate-700/25
           hover:bg-slate-400 dark:hover:bg-slate-700"
         href={`/portfolio/${id.toString().padStart(3, '0')}`}>
         <small>{idx + 1}</small>
-        <span class="accent -xs:col-span-2">{name}</span>
+        <span
+          class="-xs:col-span-2
+            text-cyan-700 dark:text-cyan-600 group-hover:text-sky-700">
+          {name}
+        </span>
         <small class="-md:hidden">{address}</small>
         <span class="-xs:hidden text-right">
           {Number(area).toLocaleString()}

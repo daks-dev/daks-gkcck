@@ -3,7 +3,7 @@
 ac="yes";
 until [ $ac = "-" ]; do
     echo -e "";
-    echo -e "+ : Git:pull";
+    echo -e "+ : git:pull";
     echo -e "";
     echo -e "1 : npm:install";
     echo -e "2 : npm:update";
@@ -11,7 +11,8 @@ until [ $ac = "-" ]; do
     echo -e "4 : svelte:check";
     echo -e "5 : vite:build";
     echo -e "";
-    echo -e "7 : Git:status";
+    echo -e "7 : git:status";
+    echo -e "8 : git:restore";
     echo -e "";
     echo -e "0 : clean";
     echo -e "";
@@ -21,7 +22,7 @@ until [ $ac = "-" ]; do
     read  ac;
     case $ac in
         "+")
-            echo -e "> Git:pull";
+            echo -e "> git:pull";
             git pull;;
 
         "1")
@@ -41,8 +42,12 @@ until [ $ac = "-" ]; do
             npm run build;;
 
         "7")
-            echo -e "> Git:status";
+            echo -e "> git:status";
             git status;;
+
+        "8")
+            echo -e "> git:restore";
+            git restore .;;
 
         "0")
             echo -e "> clean";

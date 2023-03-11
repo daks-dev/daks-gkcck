@@ -115,13 +115,15 @@
         <a
           class="relative w-fit group hover:drop-shadow-md"
           href="/partners/{customer.id.toString().padStart(3, '0')}">
-          <Sign class="absolute z-10 left-full top-0 ml-1" />
+          <Sign
+            class="
+              absolute z-10
+              top-0 md:top-2 -md:left-full -md:ml-1 md:right-2" />
           <Figure
             class="hidden md:flex "
             custom={{ image: 'border border-slate-400 drop-shadow' }}
             data={logotypes[customer.id - 1]} />
-          <h2
-            class="md:hidden text-cyan-700 dark:text-cyan-700">
+          <h2 class="md:hidden text-cyan-700 dark:text-cyan-700">
             {customer.name}
           </h2>
         </a>

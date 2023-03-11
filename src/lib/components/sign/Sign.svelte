@@ -10,9 +10,11 @@
 
 <Icon
   class={classNames(
-    'w-5 h-5 lg:w-6 lg:h-6',
+    'absolute z-10',
+    'w-7 h-7 lg:w-8 lg:h-8 p-1',
+    'rounded-full bg-neutral-100/70',
     'text-sky-700 dark:text-sky-400',
-    'opacity-50 group-hover:opacity-100',
+    'opacity-70 group-hover:opacity-100',
     'group-hover:mt-1 group-hover:animate-bounce',
     className
   )}
