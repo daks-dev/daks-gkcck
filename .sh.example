@@ -50,6 +50,27 @@ until [ $ac = "-" ]; do
             rm -rf build/{*,.*};
             rm -rf node_modules/{*,.*};
             rm -f package-lock.json;;
+
+        "n")
+            acc="yes";
+            until [[ $acc == "-" ]]; do
+                echo -e "";
+                echo -e "    1 : restart";
+                echo -e "    2 : status";
+                echo -e "";
+                echo -e "    - : exit";
+                echo -e "";
+                echo -e "    Type \c ";
+                read  acc;
+                case $acc in
+                    "1")
+                        echo -e "> nginx restart";
+                        sudo systemctl restart nginx.service;;
+                    "2")
+                        echo -e "> nginx status";
+                        sudo systemctl status nginx.service;;
+                esac
+            done;;
     esac
 done
 echo -e "";
