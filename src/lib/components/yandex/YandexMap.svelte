@@ -9,6 +9,8 @@
   let className: any = undefined;
   export { className as class };
 
+  export let grayscale = false;
+
   export let faded = false;
   const animate = faded ? fade : fly;
   const options = faded
@@ -35,8 +37,8 @@
       res = '<div class="flex flex-col pt-0.5">';
       if (el.address) res = `${res}<span>${el.address}</span>`;
       if (el.area) {
-         res = `${res}<span>${(el.area_term || 'Общая площадь').toLocaleLowerCase()}: `;
-         res = `${res}${el.area.toLocaleString()} ${el.area_unit || 'м<sup>2</sup>'}</span>`;
+        res = `${res}<span>${(el.area_term || 'Общая площадь').toLocaleLowerCase()}: `;
+        res = `${res}${el.area.toLocaleString()} ${el.area_unit || 'м<sup>2</sup>'}</span>`;
       }
       if (el.note) res = `${res}<small>${el.note}</small>`;
       if (el.activities) res = `${res}<small>[ ${el.activities} ]</small>`;
@@ -85,7 +87,10 @@
     in:animate={options}
     class={classNames(className)}>
     <YandexMap
-      class="ymaps--left-copyright w-full h-full"
+      class={classNames(
+        'ymaps--left-copyright w-full h-full',
+        grayscale && 'grayscale hover:grayscale-0'
+      )}
       {data} />
   </svelte:element>
 {/if}
