@@ -15,7 +15,12 @@ CREATE TABLE projects (
   scope        TEXT,
   scope_term   TEXT,
   activities   TEXT,
-  geodata      TEXT     NOT NULL,
+  /*
+  latitude     REAL,
+  longitude    REAL,
+  zoom         REAL,
+  */
+  location     TEXT     NOT NULL,
   note         TEXT,
   title        TEXT,
   description  TEXT,
@@ -26,7 +31,7 @@ CREATE TABLE projects (
 );
 
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   1,
   'ЖК «City Bay»',
   'г. Москва, Волоколамское шоссе, д. 95-97',
@@ -38,7 +43,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   2,
   'ЖК «Метрополия»',
   'г. Москва, Волгоградский проспект, 32',
@@ -50,7 +55,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   3,
   'ЖК «Discovery»',
   'г. Москва, ул. Дыбенко, 7/1',
@@ -62,7 +67,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   4,
   'ЖК «Водный»',
   'г. Москва, Головинское шоссе, 5',
@@ -74,7 +79,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   5,
   'ЖК «Эко Видное»',
   'МО, Ленинский район, д. Сапроново',
@@ -86,7 +91,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   6,
   'ЖК «Эко Видное 2.0»',
   'МО, Ленинский район, д. Ермолино',
@@ -98,7 +103,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   7,
   'ЖК «Фили Град»',
   'г. Москва, Береговой проезд, 5',
@@ -110,7 +115,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   8,
   'ЖК «Фили Сити»',
   'г. Москва, Багратионовский проезд, 5',
@@ -122,7 +127,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   9,
   'ЖК «Савеловский city»',
   'г. Москва, ул. Складочная, вл. 1',
@@ -134,7 +139,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   10,
   'ЖК «PerovSky»',
   'г. Москва, шоссе Энтузиастов, 88',
@@ -146,7 +151,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   1 /* MR group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   11,
   'ЖК «Гринада»',
   'г. Москва, ул. Феодосийская, вл. 1/9',
@@ -157,7 +162,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   8 /* PSN group */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   12,
   'Жилой дом',
   'МО г. Клин, ул. Менделеева, д.7',
@@ -168,7 +173,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   10 /* Администрация городского округа Клин */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   13,
   'ЖК «Сердце Столицы»',
   'г. Москва, ул. Шеногина , вл.1',
@@ -179,7 +184,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   4 /* Донстрой */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   14,
   'ЖК «Суббота»',
   'г. Москва, САО, ул. Верхняя, вл. 34',
@@ -190,7 +195,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   4 /* Донстрой */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   15,
   'ЖК «Станция Л»',
   'г. Москва, ул. Люблинская , вл. 72',
@@ -201,7 +206,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   7 /* Seven Suns */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, scope_term, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, scope_term, location, customer ) VALUES (
   16,
   'Многофункциональный ЖК',
   'г. Москва, ул. Шаболовка, д. 31',
@@ -213,7 +218,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, scope_term, geodat
   2 /* GPZ */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   17,
   'Деловой центр',
   'г. Москва, ул. Шаболовка, д. 31',
@@ -224,7 +229,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   2 /* GPZ */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   18,
   'ТРЦ «Столица»',
   'МО, г. Московский, ул. Никитина 2',
@@ -235,7 +240,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   3 /* Столица */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   19,
   'Бизнес центр «Якорь»',
   'г. Москва, СЗАО, район Хорошево Мневники. Причальный пр. вл.2',
@@ -246,7 +251,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   11 /* Стройсервисбыт */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   20,
   'ТРЦ «Небо»',
   'г. Москва, ул. Авиаторов, вл. 5',
@@ -257,7 +262,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   3 /* Столица */
 );
 
-INSERT INTO projects ( id, name, address, area, area_term, area_unit, units, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, area_term, area_unit, units, activities, location ) VALUES (
   21,
   'ФГБУ НМИЦ Кардиологии',
   'г. Москва, ул. 3-я Черепковская , 15А',
@@ -269,7 +274,7 @@ INSERT INTO projects ( id, name, address, area, area_term, area_unit, units, act
   '55.756512, 37.377227'
 );
 
-INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, location ) VALUES (
   22,
   'Храм Илии Пророка',
   'г. Москва, ул. Ленинградское шоссе, 39',
@@ -277,7 +282,7 @@ INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
   '55.835426, 37.483602'
 );
 
-INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, location ) VALUES (
   23,
   'Храм Воскресения Словущего',
   'г. Москва, пересечение улиц Белореченской и Перерва',
@@ -285,7 +290,7 @@ INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
   '55.666835, 37.768476'
 );
 
-INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, location ) VALUES (
   24,
   'Храм Спиридона Тримифунского Чудотворца',
   'г. Москва, ул. Большая Академическая, д.33',
@@ -293,7 +298,7 @@ INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
   '55.830469, 37.530116'
 );
 
-INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, location ) VALUES (
   25,
   'Храм Двенадцати апостолов',
   'Москва, ул. Клинская, вл.12-14',
@@ -301,7 +306,7 @@ INSERT INTO projects ( id, name, address, area, geodata ) VALUES (
   '55.869493, 37.494665'
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   26,
   'ЖК «Оливковый дом»',
   'г. Москва, ул. Верхняя, 34',
@@ -313,7 +318,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, activities, geodat
   4 /* Донстрой */
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location, customer ) VALUES (
   27,
   'Центр интерьеров «The Dom»',
   'г. Москва, ул. Шеногина , вл.1',
@@ -324,7 +329,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata, customer 
   4 /* Донстрой */
 );
 
-INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, location ) VALUES (
   28,
   'Центральный стадион',
   'г. Москва, ул. Ленинградский проспект, 36',
@@ -335,7 +340,7 @@ INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, g
   '55.791374, 37.560160'
 );
 
-INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, location ) VALUES (
   29,
   'Стадион г. Нижний Новгород',
   'г. Нижний Новгород, ул. Должанская, 2А, к. 1',
@@ -346,7 +351,7 @@ INSERT INTO projects ( id, name, address, area, scope, scope_term, activities, g
   '56.337697, 43.963348'
 );
 
-INSERT INTO projects ( id, name, address, area, units, scope, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, location ) VALUES (
   30,
   'Корпус информационных технологий РЭУ им. Г.В. Плеханова',
   'г. Москва, ул. Б. Серпуховская, вл. 13, стр. 1',
@@ -356,7 +361,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, geodata ) VALUES (
   '55.727361, 37.626103'
 );
 
-INSERT INTO projects ( id, address, name, activities, geodata, note ) VALUES (
+INSERT INTO projects ( id, address, name, activities, location, note ) VALUES (
   31,
   '',
   'Боровское шоссе',
@@ -365,7 +370,7 @@ INSERT INTO projects ( id, address, name, activities, geodata, note ) VALUES (
   'Проектные работы по реконструкции автодороги от Минского шоссе до Боровского шоссе (Внуковское шоссе).'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   32,
   'Жилой дом на ул. П. Романова',
   'г. Москва, ул. П. Романова, д.10',
@@ -373,7 +378,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.706658, 37.682226'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   33,
   'Жилой дом на проезде Черепановых',
   'Москва, проезд Черепановых, д. 54 А',
@@ -381,7 +386,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.842937, 37.538127'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   34,
   'ТРЦ «Небо»',
   'г. Москва, ул. Авиаторов, владение 7А, к.2',
@@ -389,7 +394,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.641924, 37.402359'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   35,
   'Детский сад в пос. Мосрентген, кв. 24',
   'г. Москва, поселение Мосрентген, кв. 24, влд. 3',
@@ -397,7 +402,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.621774, 37.474087'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   36,
   'Детский сад в пос. Мосрентген, кв. 23',
   'г. Москва, поселение Мосрентген, кв. 23, влд.1',
@@ -405,7 +410,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.621761, 37.474065'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   37,
   'Блок начальных классов ГБОУ «Школа № 1391»',
   'г. Москва, поселение Киевский',
@@ -413,7 +418,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.429564, 36.869764'
 );
 
-INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, activities, location ) VALUES (
   38,
   'Блок начальных классов ГБОУ «Школа № 1392»',
   'Москва, Новомосковский административный округ, поселение Филимоновское , поселок Марьино, 2',
@@ -421,7 +426,7 @@ INSERT INTO projects ( id, name, address, activities, geodata ) VALUES (
   '55.549548, 37.323732'
 );
 
-INSERT INTO projects ( id, name, address, area, scope, activities, geodata ) VALUES (
+INSERT INTO projects ( id, name, address, area, scope, activities, location ) VALUES (
   39,
   'Клубный дом «Негоциант»',
   'г. Москва, ул. Б. Якиманка, вл.24',
@@ -432,7 +437,7 @@ INSERT INTO projects ( id, name, address, area, scope, activities, geodata ) VAL
 );
 
 /*
-INSERT INTO projects ( id, name, address, area, units, scope, activities, geodata, customer ) VALUES (
+INSERT INTO projects ( id, name, address, area, units, scope, activities, location, customer ) VALUES (
   ?,
   '',
   '',

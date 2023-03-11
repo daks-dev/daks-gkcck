@@ -1,5 +1,4 @@
 <script lang="ts">
-  import classNames from 'classnames';
   import { onMount } from 'svelte';
   import { YandexMetrikaHit, Icon, Figure } from 'daks-svelte';
   import { ProjectsList } from '$lib/components';
@@ -8,16 +7,22 @@
   import type { PageData } from './$types';
   export let data: PageData;
 
-  let innerWidth: number;
-  $: aside = innerWidth >= 768;
-
   const { partner, projects } = data;
-  const { id, name, email, telephone, address, url, title, description } = partner;
+  const {
+    id,
+    name,
+    email,
+    telephone,
+    address,
+    url,
+    title,
+    description,
+    center,
+    zoom
+  } = partner;
 
   onMount(() => document?.lazyload.update());
 </script>
-
-<svelte:window bind:innerWidth />
 
 <YandexMetrikaHit
   title="ГК ССК • {title || name}"
@@ -71,6 +76,9 @@
 
   {#if projects.length}
     <hr class="content my-8" />
-    <ProjectsList {projects} />
+    <ProjectsList
+      {projects}
+      zoom={zoom || undefined}
+      center={center || undefined} />
   {/if}
 </main>

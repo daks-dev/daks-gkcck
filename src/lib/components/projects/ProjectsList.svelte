@@ -8,11 +8,14 @@
 
   export let projects: Project[];
   export let mode = 0;
+  
+  export let center: undefined | string = undefined;
+  const geometry = center && center.split(', ').map((x: string) => Number(x));
+  export let zoom = 10;
+    // (x: number) => (x < 768 && 10) || (x < 1024 && 10.3) || (x < 1280 && 10) || 10.3;
 
   let innerWidth: number;
   $: mapper = innerWidth >= 640;
-  $: zoom = 10;
-    // (innerWidth < 768 && 10) || (innerWidth < 1024 && 10.3) || (innerWidth < 1280 && 10) || 10.3;
 
   const transition = {
     in: { duration: 300, delay: 100, amount: 5, easing: sineIn },
@@ -134,6 +137,7 @@
         w-full aspect-square lg:aspect-video
         border-4 border-slate-400"
       {projects}
+      {center}
       {zoom}
       faded />
   </div>

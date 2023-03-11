@@ -1,5 +1,6 @@
 <script lang="ts">
   import { YandexMetrikaHit, Figure, LightboxKit, YandexMap } from 'daks-svelte';
+  import { Sign } from '$lib/components';
   import { sources as logotypes } from '$lib/content/partners/images';
 
   import microdata from '$configs/microdata';
@@ -19,13 +20,13 @@
     scope,
     scope_term,
     activities,
-    geodata,
+    location,
     note,
     title,
     description
   } = project;
 
-  const geometry = geodata.split(', ').map((x: string) => Number(x));
+  const geometry = location.split(', ').map((x: string) => Number(x));
 
   const geomap = {
     locations: [
@@ -112,13 +113,17 @@
 
       {#if customer}
         <a
-          class="hover:drop-shadow-md"
+          class="relative w-fit group hover:drop-shadow-md"
           href="/partners/{customer.id.toString().padStart(3, '0')}">
+          <Sign class="absolute z-10 left-full top-0 ml-1" />
           <Figure
-            class="hidden md:flex"
+            class="hidden md:flex "
             custom={{ image: 'border border-slate-400 drop-shadow' }}
             data={logotypes[customer.id - 1]} />
-          <h3 class="md:hidden accent">{customer.name}</h3>
+          <h2
+            class="md:hidden text-cyan-700 dark:text-cyan-700">
+            {customer.name}
+          </h2>
         </a>
       {:else}
         <img

@@ -18,7 +18,10 @@ interface Project {
   scope?: string;
   scope_term?: string;
   activities?: string;
-  geodata: string;
+  // latitude?: number;
+  // longitude?: number;
+  // zoom?: number;
+  location: string;
   note?: string;
   title?: string;
   description?: string;
@@ -37,6 +40,10 @@ interface Partner {
   title?: string;
   description?: string;
   projects?: number;
+  // latitude?: number;
+  // longitude?: number;
+  center?: string;
+  zoom?: number;
   priority?: number;
   hidden?: boolean;
 }

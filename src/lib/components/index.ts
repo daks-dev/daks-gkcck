@@ -9,4 +9,6 @@ export { default as PartnersCarousel } from './partners/PartnersCarousel.svelte'
 export { default as ProjectsList } from './projects/ProjectsList.svelte';
 export { default as ProjectsCarousel } from './projects/ProjectsCarousel.svelte';
 
+export { default as Sign } from './sign/Sign.svelte';
+
 export { default as YandexMap } from './yandex/YandexMap.svelte';

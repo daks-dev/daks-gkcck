@@ -15,8 +15,9 @@
     "round-phone-android",
     "round-phone-in-talk",
     "round-search",
-    "round-search-off"
-
+    "round-search-off",
+    "round-zoom-in",
+    "round-zoom-out-map"
   ],
   "line-md": [
     "home-simple",
@@ -25,6 +26,7 @@
     "sunny-outline-to-moon-loop-transition"
   ],
   "mdi": [
+    "link-variant",
     "transfer-up"
   ],
   "svg-spinners": [

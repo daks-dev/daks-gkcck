@@ -9,7 +9,8 @@
   let className: any = undefined;
   export { className as class };
 
-  export let grayscale = false;
+  // export let grayscale = false;
+  // export let sepia = false;
 
   export let faded = false;
   const animate = faded ? fade : fly;
@@ -28,8 +29,8 @@
   export let tag = 'div';
 
   export let projects: Project[];
-  export let center = [55.727154, 37.593857]; // 55.716886, 37.609126
-  export let zoom: number | string | ((x?: number) => number) = 9.2;
+  export let center = '55.727154, 37.593857';
+  export let zoom = 9.2;
 
   const body = (el: Project) => {
     let res = '---';
@@ -54,7 +55,7 @@
 
   const data = {
     locations: projects.map((el, idx) => ({
-      geometry: el.geodata.split(', ').map((x: string) => Number(x)),
+      geometry: el.location.split(', ').map((x: string) => Number(x)),
       properties: {
         iconContent: idx + 1,
         balloonContentHeader: `${el.name} <sup class="font-normal">(${idx + 1})</sup>`,
@@ -66,8 +67,8 @@
       }
     })),
     state: {
-      center,
-      zoom: typeof zoom === 'function' ? zoom() : zoom,
+      center: center.split(', ').map((x: string) => Number(x)),
+      zoom,
       behaviors: ['drag', 'dblClickZoom', 'rightMouseButtonMagnifier', 'multiTouch'],
       controls: ['zoomControl', 'fullscreenControl']
     },
@@ -88,8 +89,9 @@
     class={classNames(className)}>
     <YandexMap
       class={classNames(
-        'ymaps--left-copyright w-full h-full',
-        grayscale && 'grayscale hover:grayscale-0'
+        'ymaps--left-copyright w-full h-full'
+        // grayscale && 'grayscale hover:grayscale-0'
+        // sepia && 'sepia hover:sepia-0'
       )}
       {data} />
   </svelte:element>
