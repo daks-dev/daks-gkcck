@@ -26,8 +26,8 @@
   export let tag = 'div';
 
   export let projects: Project[];
-  export let center = [55.727154, 37.593857];
-  export let zoom: (x?: number) => number = () => 9.2;
+  export let center = [55.727154, 37.593857]; // 55.716886, 37.609126
+  export let zoom: number | string | ((x?: number) => number) = 9.2;
 
   const footer = (el: Project) => {
     let res;
@@ -56,7 +56,7 @@
     })),
     state: {
       center,
-      zoom: zoom(),
+      zoom: typeof zoom === 'function' ? zoom() : zoom,
       behaviors: ['drag', 'dblClickZoom', 'rightMouseButtonMagnifier', 'multiTouch'],
       controls: ['zoomControl', 'fullscreenControl']
     },
@@ -71,12 +71,12 @@
 </script>
 
 {#if render}
-  <section
+  <svelte:element
+    this={tag}
     in:animate={options}
     class={classNames(className)}>
     <YandexMap
       class="ymaps--left-copyright w-full h-full"
-      {data}
-      {tag} />
-  </section>
+      {data}/>
+  </svelte:element>
 {/if}

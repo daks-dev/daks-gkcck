@@ -2,42 +2,83 @@
   import classNames from 'classnames';
   import { blur, fade } from 'svelte/transition';
   import { sineIn, sineOut } from 'svelte/easing';
-  import { afterUpdate } from 'svelte';
+  import { beforeUpdate, afterUpdate } from 'svelte';
   import { Icon, Figure } from 'daks-svelte';
+  import { YandexMap } from '$lib/components';
   import { squares as images } from '$lib/content/portfolio/images';
 
   export let projects: Project[];
+  export let mode = 0;
   export let aside = false;
+  export let toggle = () => false;
+
+
+  let innerWidth: number;
+  $: map = innerWidth >= 640;
+  $: zoom =
+    (innerWidth < 768 && 10) || (innerWidth < 1024 && 10.3) || (innerWidth < 1280 && 10) || 10.3;
 
   const transition = {
     in: { duration: 300, delay: 100, amount: 5, easing: sineIn },
     out: { duration: 200, easing: sineOut }
   };
 
-  let mode = true;
-
+  beforeUpdate(() => mode === 2 && (mode = aside ? 1 : map ? 2 : 0));
   afterUpdate(() => document?.lazyload.update());
 </script>
 
-<div class={classNames(aside || 'content', 'mb-4 flex justify-between items-center')}>
-  <span class="p-2">[{projects.length}]</span>
+<svelte:window bind:innerWidth />
+
+<div class={classNames(aside || 'content', 'mb-4 flex items-center gap-4')}>
+  <span class="p-1.5 mr-auto">[{projects.length}]</span>
   <button
-    on:click={() => (mode = !mode)}
+    on:click={() => (mode = 0)}
     class="
-      p-2
-      rounded hover:bg-gray-300 dark:hover:bg-gray-700"
-    type="button">
+      p-1.5 rounded
+      hover:bg-gray-300 dark:hover:bg-gray-700
+      disabled:text-cyan-600 dark:disabled:text-cyan-700"
+    type="button"
+    disabled={!mode || undefined}>
     <Icon
-      icon="ic:round-{mode ? 'format-list-bulleted' : 'apps'}"
+      icon="ic:round-apps"
+      size="1.5em" />
+  </button>
+  <button
+    on:click={() => (mode = 1)}
+    class="
+      p-1.5 rounded
+      hover:bg-gray-300 dark:hover:bg-gray-700
+      disabled:text-cyan-600 dark:disabled:text-cyan-700"
+    type="button"
+    disabled={mode === 1 || undefined}>
+    <Icon
+      icon="ic:round-format-list-bulleted"
+      size="1.5em" />
+  </button>
+  <button
+    on:click={() => {
+      mode = 2;
+      if (aside) aside = toggle();
+    }}
+    class="
+      hidden sm:block
+      p-1.5 rounded
+      hover:bg-gray-300 dark:hover:bg-gray-700
+      disabled:text-cyan-600 dark:disabled:text-cyan-700"
+    type="button"
+    disabled={mode === 2 || undefined}>
+    <Icon
+      icon="ic:round-map"
       size="1.5em" />
   </button>
 </div>
 
-{#if mode}
+{#if !mode}
   <div
     in:blur={transition.in}
     out:fade={transition.out}
-    class={classNames(aside || 'wrapper', 'flex flex-wrap justify-center gap-8')}>
+    class="flex flex-wrap justify-center gap-8"
+    class:wrapper={!aside}>
     {#each projects as { id, name, address }}
       {@const image = images[id - 1]}
       {@const data = { ...image, title: name, description: address }}
@@ -64,11 +105,12 @@
       </a>
     {/each}
   </div>
-{:else}
+{:else if mode === 1}
   <div
     in:blur={transition.in}
     out:fade={transition.out}
-    class={classNames(aside || 'content', 'flex flex-col')}>
+    class="flex flex-col"
+    class:content={!aside}>
     {#each projects as { id, name, address, area, area_unit }, idx}
       <a
         class={classNames(
@@ -92,5 +134,15 @@
         {/if}
       </a>
     {/each}
+  </div>
+{:else}
+  <div class="wrapper hidden sm:block">
+    <YandexMap
+      class="
+        w-full aspect-square lg:aspect-video
+        border-4 border-slate-400"
+      {projects}
+      {zoom}
+      faded />
   </div>
 {/if}
