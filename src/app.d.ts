@@ -1,7 +1,9 @@
 // See https://kit.svelte.dev/docs/types#app
 declare namespace App {
+  interface Locals {
+    userid: string;
+  }
   // interface Error {}
-  // interface Locals {}
   // interface PageData {}
   // interface Platform {}
 }

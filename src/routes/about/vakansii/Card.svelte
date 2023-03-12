@@ -14,7 +14,7 @@ export let title: string;
     'rounded-md border-2',
     className
   )}>
-  <h4 class="accent sm:h-12 mb-4 text-center">
+  <h4 class="mb-4 sm:h-12 text-accent text-center">
     {title}
   </h4>
   <slot />

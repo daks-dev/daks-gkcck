@@ -1,6 +1,6 @@
 {
   "name": "daks-gkcck",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "GkCCK development",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "classnames": "^2.3.2",
     "cssnano": "^5.1.15",
     "cssnano-preset-advanced": "^5.3.10",
-    "daks-svelte": "^0.1.41",
+    "daks-svelte": "^0.1.45",
     "dotenv": "^16.0.3",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",

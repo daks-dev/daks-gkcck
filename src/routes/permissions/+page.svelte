@@ -18,7 +18,7 @@
     <h1 class="title">Допуски и сертификаты</h1>
   </header>
 
-  <div class="content readable text-justify mb-8">
+  <div class="content readable text-justify">
     <p>
       <strong>ГК&nbsp;ССК </strong>аккредитована в нескольких строительных, проектном, а также
       изыскательном СРО с уровнем ответственности, достаточным для работы на уникальных и особо
@@ -37,12 +37,23 @@
     </p>
     <p>
       Входит в попечительский совет МГСУ, с которым тесно сотрудничает по созданию уникальных
-      учебных программ для обучения молодых специалистов.
-    </p>
+      учебных программ для обучения молодых специалистов
+      <em
+      class="
+      w-full mt-2
+      flex justify-center gap-1 sm:gap-2 lg:ga-4 2xl:gap-8
+      not-italic xs:text-lg sm:text-xl sm:tracking-wider lg:tracking-widest">
+      <span class="first-letter:text-brand">Современным</span>
+      <span class="first-letter:text-brand">Стандартам</span>
+      <span class="first-letter:text-brand">Качества</span>
+    </em>
+      </p>
+
+    <hr class="my-7 border-brand" />
   </div>
 
   <section class="content readable">
-    <h1 class="mb-4 text-center uppercase">Допуски СРО</h1>
+    <h1 class="text-center uppercase">Допуски СРО</h1>
 
     <div class="grid sm:grid-cols-[240px_minmax(0,_1fr)] gap-y-8 gap-x-5 items-center">
       <h2 class="col-span-full uppercase">Строительство:</h2>
@@ -116,9 +127,10 @@
         <span class="whitespace-nowrap font-semibold">№ СРО-И-023-14012010</span>
       </p>
     </div>
+
+    <hr class="my-7 border-brand" />
   </section>
 
-  <hr class="content accent my-8" />
 
   <section class="content readable">
     <h1 class="mb-8 text-center uppercase">Сертификаты и лицензии</h1>
@@ -176,9 +188,9 @@
         народов Российской Федерации.
       </li>
     </ul>
-  </section>
 
-  <hr class="content accent my-8" />
+    <hr class="my-7 border-brand" />
+  </section>
 
   <section class="content readable">
     <h1 class="mb-8 text-center uppercase">Аккредитации</h1>
@@ -211,9 +223,9 @@
         </ul>
       </div>
     </div>
-  </section>
 
-  <hr class="content accent my-8" />
+    <hr class="my-7 border-brand" />
+  </section>
 
   <section class="content readable">
     <h1 class="mb-8 text-center uppercase">Учебный центр</h1>
@@ -234,9 +246,9 @@
         «О внесении в реестр аккредитованных организаций, оказывающих услуги в области охраны труда».
       </li>
     </ul>
-  </section>
 
-  <hr class="content accent my-8" />
+    <hr class="my-7 border-brand" />
+  </section>
 
   <section class="content readable">
     <h1 class="mb-8 text-center uppercase">Работа с НИУ МГСУ</h1>

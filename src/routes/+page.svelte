@@ -53,7 +53,7 @@
           href="/activity{href}">
           <h4
             slot="title"
-            class="accent h-12 text-center">
+            class="h-12 text-accent text-center">
             {@html label}
           </h4>
         </ActivityCard>
@@ -65,9 +65,9 @@
     class="
       hidden sm:block
       w-full mx-auto max-w-xl aspect-video mt-16
-      lg:absolute lg:top-[5vh] lg:right-[10vw] 2xl:top-[10vh] 2xl:right-[15vw]
+      lg:absolute lg:top-[5vh] lg:right-[7vw] xl:right-[10vw] 3xl:right-[20vw]
       lg:max-w-md lg:aspect-4/3
-      lg:drop-shadow--accent lg:hover:drop-shadow-md
+      lg:drop-shadow-brand lg:hover:drop-shadow-md
       overflow-hidden
       border-4 border-slate-400 
       lg:rounded-lg lg:border

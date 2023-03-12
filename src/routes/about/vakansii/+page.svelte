@@ -30,13 +30,15 @@
           w-full mt-2
           flex justify-center gap-1 sm:gap-2 lg:ga-4 2xl:gap-8
           not-italic xs:text-lg sm:text-xl sm:tracking-wider lg:tracking-widest">
-        <span class="first-letter:text-rose-700">Современные</span>
-        <span class="first-letter:text-rose-700">Стандарты</span>
-        <span class="first-letter:text-rose-700">Качества</span>
+        <span class="first-letter:text-brand">Современные</span>
+        <span class="first-letter:text-brand">Стандарты</span>
+        <span class="first-letter:text-brand">Качества</span>
       </em>
     </p>
 
-    <h2 class="mt-5 mb-7 accent text-xl">
+    <hr class="my-7 border-brand" />
+
+    <h2 class="mb-7 text-accent text-xl">
       Наша Компания заинтересована в талантливых, ответственных и способных работать в команде
       сотрудников!
     </h2>

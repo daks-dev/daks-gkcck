@@ -62,7 +62,7 @@
     {#if activities}
       <div class="flex flex-wrap gap-x-2">
         <dt class="font-semibold text-slate-500">Виды работ:</dt>
-        <dd class="accent">{activities}</dd>
+        <dd class="text-accent">{activities}</dd>
       </div>
     {/if}
     {#if note}
@@ -88,7 +88,7 @@
     </a>
   {:else}
     <img
-      class="h-24 sm:h-32 md:h-40 w-auto max-w-none drop-shadow--deep"
+      class="h-24 sm:h-32 md:h-40 w-auto max-w-none drop-shadow-deep"
       src={logo}
       alt="" />
   {/if}

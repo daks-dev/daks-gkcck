@@ -35,7 +35,7 @@
           href="/activity{href}">
           <h4
             slot="title"
-            class="accent h-12 text-center">
+            class="h-12 text-accent text-center">
             {@html label}
           </h4>
         </ActivityCard>

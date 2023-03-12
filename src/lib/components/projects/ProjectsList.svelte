@@ -24,7 +24,7 @@
   beforeUpdate(() => mode === 2 && (mode = mapper ? 2 : 0));
   afterUpdate(() => {
     mode || document?.lazyload.update();
-    mode === 2 && setTimeout(() => scroll.toObj('#ymap', { offset: -45, duration: 2100 }), 700);
+    mode === 2 && setTimeout(() => scroll.toObj('#ymap', { offset: -96, duration: 2100 }), 700);
   });
 </script>
 
@@ -95,7 +95,7 @@
           class="
             overflow-hidden
             rounded border border-slate-400
-            drop-shadow--deep group-hover:drop-shadow--hard
+            drop-shadow-deep group-hover:drop-shadow-hard
             transition duration-300 ease-in-out
             pointer-events-none"
           custom={{

@@ -83,12 +83,12 @@
         w-full mt-2
         flex justify-center gap-1 sm:gap-2 lg:ga-4 2xl:gap-8
         not-italic xs:text-lg sm:text-xl sm:tracking-wider lg:tracking-widest">
-        <span class="first-letter:text-rose-700">Современным</span>
-        <span class="first-letter:text-rose-700">Стандартам</span>
-        <span class="first-letter:text-rose-700">Качества</span>
+        <span class="first-letter:text-brand">Современным</span>
+        <span class="first-letter:text-brand">Стандартам</span>
+        <span class="first-letter:text-brand">Качества</span>
       </em>
     </p>
 
-    <hr class="accent my-5" />
+    <hr class="my-7 border-brand" />
   </div>
 </main>

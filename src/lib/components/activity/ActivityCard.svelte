@@ -26,7 +26,6 @@
   class="top-1 left-1"
   link
   small />
-
   <slot name="title" />
   <div class="grow">
     <slot />

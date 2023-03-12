@@ -22,12 +22,18 @@
     dark:text-slate-400 dark:bg-gray-800/50
     shadow-md shadow-slate-500/50`;
 
-  let render = false;
-  onMount(() => (render = BROWSER));
+  const handlePoster = () => localStorage.setItem('poster', (poster = !poster).toString());
+
+  let poster: boolean;
+  let render: boolean;
+  onMount(() => {
+    render = BROWSER;
+    BROWSER && (poster = localStorage.getItem('poster') === 'true');
+  });
 </script>
 
 <header class="relative min-h-screen--navbar mb-0 bg--pattern">
-  {#if render}
+  {#if render && poster}
     {#await getter() then { srcset, fallback }}
       <img
         in:blur={{
@@ -49,23 +55,11 @@
     {/await}
   {/if}
 
-  <h1
-    class="
-        absolute bottom-[10vh] left-[7vw]
-        flex flex-col gap-4
-        font-black tracking-wider text-shadow--home
-        text-gray-700 dark:text-neutral-300
-        text-4xl xs:text-5xl sm:text-6xl lg:text-7xl">
-    <span class="first-letter:text-rose-700">Современные</span>
-    <span class="first-letter:text-rose-700">Стандарты</span>
-    <span class="first-letter:text-rose-700">Качества</span>
-  </h1>
-
   <img
     class="
-        absolute top-[4vh] left-[4vw] lg:left-[2vw]
+        absolute top-[4vh] left-[4vw] lg:left-[7vw] xl:left-[12vw] 3xl:left-[7vw]
         h-[15vh] lg:h-[12.5vh]
-        drop-shadow--deep"
+        drop-shadow-deep"
     src={logo}
     alt=""
     itemprop="logo" />
@@ -93,28 +87,40 @@
     </a>
   </div>
 
+  <h1
+    class="
+        absolute bottom-[10vh] left-[7vw] 2xl:left-[12vw]
+        flex flex-col gap-4
+        font-black tracking-wider text-shadow--home
+        text-gray-700 dark:text-neutral-300
+        text-4xl xs:text-5xl sm:text-6xl lg:text-7xl">
+    <span class="first-letter:text-brand">Современные</span>
+    <span class="first-letter:text-brand">Стандарты</span>
+    <span class="first-letter:text-brand">Качества</span>
+  </h1>
+
   <a
     class="
       hidden md:flex gap-1 items-center
-      absolute bottom-[10vh] right-[7vw]
+      absolute bottom-[10vh] right-[7vw] 2xl:right-[12vw] 3xl:right-[7vw]
       font-mono font-black tracking-tighter
       text-3xl text-slate-600 dark:text-neutral-400
-      drop-shadow--deep
+      drop-shadow-deep
       transition duration-300 ease-in-out"
     href="tel://{telephone.replace(/[\s-()]/g, '')}"
     itemprop="telephone">
     <span>{tel.substring(0, 7)}</span>
-    <span class="text-rose-700">{tel.substring(7)}</span>
+    <span class="text-brand">{tel.substring(7)}</span>
   </a>
 
   {#if BROWSER}
     <button
-      on:click={() => (render = !render)}
+      on:click={handlePoster}
       class="
         absolute bottom-[4vh] right-[4vw]
-        drop-shadow--deep opacity-50 hover:opacity-100
+        drop-shadow-deep opacity-50 hover:opacity-100
         transition duration-300"
-      class:rotate-45={!render}
+      class:rotate-45={!poster}
       type="button">
       <Icon
         icon="ic:round-close"
