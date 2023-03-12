@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { YandexMetrikaHit, Figure, Gallery } from 'daks-svelte';
+  import { YandexMetrikaHit, Figure } from 'daks-svelte';
+  import { Sign } from '$lib/components';
   import { squares as images } from '$lib/content/partners/images';
 
   import type { PageData } from './$types';
@@ -28,15 +29,20 @@
       {@const data = { ...image, subtitle: projects ? `${projects}` : undefined }}
       {#if !hidden}
         <a
-          class="group"
+          class="relative group"
           href={`/partners/${id.toString().padStart(3, '0')}`}>
+          <Sign
+            class="top-2 left-2"
+            link
+            light />
           <Figure
             class="drop-shadow hover:drop-shadow-md"
             custom={{
               caption: `
-              absolute bottom-1 left-1 py-1 px-2 w-8 h-8 
+              absolute bottom-1 right-1 py-1 px-2 w-8 h-8 
               flex flex-col justify-center items-center
-              rounded text-white bg-gray-700/30`
+              rounded-full text-white bg-black/30
+              opacity-50 group-hover:opacity-100`
             }}
             {data} />
         </a>

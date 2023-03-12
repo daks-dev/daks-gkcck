@@ -28,8 +28,7 @@
         lg:float-left lg:mt-1.5 lg:mr-5 lg:mb-2 lg:max-w-md lg:aspect-4/3
         lg:drop-shadow-md lg:hover:drop-shadow-none
         lg:rounded-lg lg:border"
-      {projects}
-      faded />
+      {projects} />
 
     <p>
       <strong>ГК&nbsp;ССК</strong> &mdash; оказывает экспертные услуги в области инжиниринга и занимает

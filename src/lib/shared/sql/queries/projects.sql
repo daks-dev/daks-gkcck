@@ -158,7 +158,7 @@ INSERT INTO projects ( id, name, address, area, units, scope, location, customer
   65937,
   2,
   '39-19',
-  '55.560324, 37.577379',
+  '55.560150, 37.577506',
   8 /* PSN group */
 );
 

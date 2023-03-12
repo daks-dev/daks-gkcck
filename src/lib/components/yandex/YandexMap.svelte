@@ -2,7 +2,7 @@
   import { BROWSER } from 'esm-env';
   import classNames from 'classnames';
   import { onMount } from 'svelte';
-  import { fly, fade } from 'svelte/transition';
+  import { fade, fly, scale } from 'svelte/transition';
   import { sineIn } from 'svelte/easing';
   import { YandexMap } from 'daks-svelte';
 
@@ -12,17 +12,26 @@
   // export let grayscale = false;
   // export let sepia = false;
 
-  export let faded = false;
-  const animate = faded ? fade : fly;
-  const options = faded
+  export let flyed = false;
+  export let scaled = false;
+  const animate = flyed ? fly : scaled ? scale : fade;
+  const options = flyed
     ? {
+      x: 512,
         duration: 700,
+        delay: 700,
+        easing: sineIn
+      }
+    : scaled
+    ? {
+        start: 0.5,
+        opacity: 0,
+        duration: 2000,
+        delay: 1000,
         easing: sineIn
       }
     : {
-        x: 512,
         duration: 700,
-        delay: 700,
         easing: sineIn
       };
 
@@ -86,6 +95,7 @@
   <svelte:element
     this={tag}
     in:animate={options}
+    id="ymap"
     class={classNames(className)}>
     <YandexMap
       class={classNames(

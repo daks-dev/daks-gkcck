@@ -2,17 +2,16 @@
   import { blur, fade } from 'svelte/transition';
   import { sineIn, sineOut } from 'svelte/easing';
   import { beforeUpdate, afterUpdate } from 'svelte';
-  import { Icon, Figure } from 'daks-svelte';
+  import { scroll, Icon, Figure } from 'daks-svelte';
   import { Sign, YandexMap } from '$lib/components';
   import { squares as images } from '$lib/content/portfolio/images';
 
   export let projects: Project[];
   export let mode = 0;
-  
+
   export let center: undefined | string = undefined;
-  const geometry = center && center.split(', ').map((x: string) => Number(x));
   export let zoom = 10;
-    // (x: number) => (x < 768 && 10) || (x < 1024 && 10.3) || (x < 1280 && 10) || 10.3;
+  // (x: number) => (x < 768 && 10) || (x < 1024 && 10.3) || (x < 1280 && 10) || 10.3;
 
   let innerWidth: number;
   $: mapper = innerWidth >= 640;
@@ -23,7 +22,10 @@
   };
 
   beforeUpdate(() => mode === 2 && (mode = mapper ? 2 : 0));
-  afterUpdate(() => mode || document?.lazyload.update());
+  afterUpdate(() => {
+    mode || document?.lazyload.update();
+    mode === 2 && setTimeout(() => scroll.toObj('#ymap', { offset: -45, duration: 2100 }), 700);
+  });
 </script>
 
 <svelte:window bind:innerWidth />
@@ -85,7 +87,10 @@
       <a
         class="relative group"
         href={`/portfolio/${id.toString().padStart(3, '0')}`}>
-        <Sign class="top-2 left-2" />
+        <Sign
+          class="top-2 left-2"
+          link
+          dark />
         <Figure
           class="
             overflow-hidden
@@ -143,7 +148,6 @@
         border-4 border-slate-400"
       {projects}
       {center}
-      {zoom}
-      faded />
+      {zoom} />
   </div>
 {/if}

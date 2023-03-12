@@ -71,7 +71,8 @@
       border-4 border-slate-400 
       lg:rounded-lg lg:border
       transition duration-500 ease-in-out"
-    {projects} />
+    {projects}
+    scaled />
 
   <section class="wrapper pt-12 lg:pt-16">
     <h2 class="mb-8">О нас</h2>

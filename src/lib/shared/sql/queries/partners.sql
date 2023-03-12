@@ -33,26 +33,32 @@ INSERT INTO partners ( id, name, email, telephone, address, url ) VALUES (
   'mr-group.ru'
 );
 
-INSERT INTO partners ( id, name, email, telephone, address, url ) VALUES (
+INSERT INTO partners ( id, name, email, telephone, address, url, center, zoom ) VALUES (
   2,
   'ОАО «ГПЗ-2 Тверь» ',
   'tver@2-gpz.ru',
   '+7 (4822) 79-66-61',
   '170100, Россия, Тверская область, г. Тверь, ул. Индустриальная, д. 11',
-  '2-gpz.ru'
+  '2-gpz.ru',
+  '55.720379, 37.611452',
+  17
 );
 
-INSERT INTO partners ( id, name ) VALUES (
+INSERT INTO partners ( id, name, center, zoom ) VALUES (
   3,
-  'ООО УК «Столица Менеджмент»'
+  'ООО УК «Столица Менеджмент»',
+  '55.628180, 37.381341',
+  13
 );
 
-INSERT INTO partners ( id, name, telephone, address, url ) VALUES (
+INSERT INTO partners ( id, name, telephone, address, url, center, zoom ) VALUES (
   4,
   'ДОНСТРОЙ',
   '+7 (495) 925-47-47',
   '119590, г. Москва, ул. Мосфильмовская, д. 70',
-  'donstroy.moscow'
+  'donstroy.moscow',
+  '55.773143, 37.547079',
+  14
 );
 
 INSERT INTO partners ( id, name, telephone, address, url ) VALUES (
@@ -71,17 +77,21 @@ INSERT INTO partners ( id, name, telephone, address, url ) VALUES (
   'fsk.ru'
 );
 
-INSERT INTO partners ( id, name, telephone, address, url ) VALUES (
+INSERT INTO partners ( id, name, telephone, address, url, center, zoom ) VALUES (
   7,
   'Seven Suns Development',
   '+7 (800) 777-20-20',
   '129110, г. Москва, Олимпийский проспект, д. 16, стр. 5 (БЦ Олимпик Холл)',
-  'sevensuns.ru'
+  'sevensuns.ru',
+  '55.669562, 37.738611',
+  17
 );
 
-INSERT INTO partners ( id, name ) VALUES (
+INSERT INTO partners ( id, name, center, zoom ) VALUES (
   8,
-  'Группа ПСН'
+  'Группа ПСН',
+  '55.560150, 37.577506',
+  17
 );
 
 INSERT INTO partners ( id, name ) VALUES (
