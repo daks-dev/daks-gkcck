@@ -13,7 +13,7 @@
   export let show: number | ((x: number) => number) = 1;
   export let ratio = 1;
 
-  const getPartners = async () => {
+  const getter = async () => {
     const images = await squares();
     return {
       dataset: partners.reduce((res, el) => {
@@ -34,7 +34,7 @@
 {#if render}
   <Async
     let:value
-    getter={getPartners}>
+    {getter}>
     <CarouselKit
       {...value}
       class={classNames(className)}
@@ -42,4 +42,6 @@
       {ratio}
       {...$$restProps} />
   </Async>
+{:else}
+  <slot />
 {/if}

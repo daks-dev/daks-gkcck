@@ -7,6 +7,8 @@
 
   export let icon = 'mdi:link-variant';
 
+  export let small = false;
+
   export let link = false;
 
   export let auto = false;
@@ -18,7 +20,8 @@
 <Icon
   class={classNames(
     'absolute z-10',
-    auto || light || dark ? 'w-7 h-7 lg:w-8 lg:h-8 p-1 rounded-full' : 'w-5 h-5 lg:w-6 lg:h-6',
+    small ? 'w-5 h-5' : 'w-7 h-7',
+    (auto || light || dark) && 'p-1 rounded-full',
     light
       ? 'bg-white/20'
       : dark

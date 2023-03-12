@@ -76,7 +76,8 @@
       href="/partners/{customer.id.toString().padStart(3, '0')}">
       <Sign
         class="top-0 left-full ml-1"
-        link />
+        link
+        small />
       <Figure
         class="hidden md:flex "
         custom={{ image: 'border border-slate-400 drop-shadow' }}

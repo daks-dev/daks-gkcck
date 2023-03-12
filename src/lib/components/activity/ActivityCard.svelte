@@ -1,6 +1,7 @@
 <script lang="ts">
   import classNames from 'classnames';
   import { Icon } from 'daks-svelte';
+  import { Sign } from '$lib/components';
 
   let className: any = 'max-w-xs';
   export { className as class };
@@ -14,13 +15,18 @@
 <svelte:element
   this={href ? 'a' : 'div'}
   class={classNames(
-    'p-4',
+    'relative group p-4',
     'flex flex-col gap-4',
     'rounded border border-current shadow',
     animate,
     className
   )}
   {href}>
+  <Sign
+  class="top-1 left-1"
+  link
+  small />
+
   <slot name="title" />
   <div class="grow">
     <slot />

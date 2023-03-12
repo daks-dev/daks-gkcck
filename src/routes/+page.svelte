@@ -6,6 +6,7 @@
     HomeHeader,
     PartnersCarousel,
     ProjectsCarousel,
+    Sign,
     YandexMap
   } from '$lib/components';
 
@@ -77,16 +78,27 @@
   <section class="wrapper pt-12 lg:pt-16">
     <h2 class="mb-8">О нас</h2>
     <div class="flex -md:flex-wrap justify-center gap-8">
-      <PartnersCarousel
+      <a
         class="
+          relative group
           shrink-0 w-80 h-fit
           order-1 md:order-none
-          rounded border overflow-hidden"
-        {partners}
-        controls=""
-        duration={500}
-        delay={3500}
-        stream />
+          hover:drop-shadow-md"
+        href="/partners">
+        <Sign
+          class="top-2 left-2"
+          link
+          light />
+        <PartnersCarousel
+          class="rounded border overflow-hidden pointer-events-none"
+          {partners}
+          controls=""
+          duration={500}
+          delay={3500}
+          stream>
+          парнёры
+        </PartnersCarousel>
+      </a>
       <div class="readable text-justify">
         <p>
           <strong>Группа компаний «ССК»</strong> создана в 2000 году. Она включает в себя динамично развивающиеся
