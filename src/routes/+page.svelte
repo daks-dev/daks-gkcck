@@ -46,10 +46,12 @@
       class="
         wrapper pt-12 lg:pt-16
         flex flex-wrap justify-around gap-y-8 gap-x-2">
-      <h2 class="w-full">Направления нашей деятельности</h2>
+      <h2 class="w-full text-brand">Направления деятельности</h2>
       {#each activity.links as { href, label }}
         <ActivityCard
-          class="w-72 aspect-square hover:bg-slate-500/25"
+          class="
+            w-72 aspect-square drop-shadow-deep
+            hover:drop-shadow-md hover:bg-slate-300/25"
           href="/activity{href}">
           <h4
             slot="title"
@@ -76,14 +78,14 @@
     scaled />
 
   <section class="wrapper pt-12 lg:pt-16">
-    <h2 class="mb-8">О нас</h2>
+    <h2 class="mb-8 text-brand">О нас</h2>
     <div class="flex -md:flex-wrap justify-center gap-8">
       <a
         class="
           relative group
           shrink-0 w-80 h-fit
           order-1 md:order-none
-          hover:drop-shadow-md"
+          drop-shadow-md hover:drop-shadow-sm"
         href="/partners">
         <Sign
           class="top-2 left-2"

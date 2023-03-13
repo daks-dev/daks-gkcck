@@ -25,14 +25,16 @@
           class="top-2 left-2"
           icon="ic:round-zoom-out-map"
           dark />
+          <!--
+          shadow-md hover:shadow-lg shadow-slate-700 dark:shadow-slate-400
+          hover:shadow-slate-800 dark:hover:shadow-slate-500
+          -->
         <Figure
           class="flex flex-col items-center"
           custom={{
             image: `
-              rounded
-              shadow-md hover:shadow-lg shadow-slate-700 dark:shadow-slate-400
-              hover:shadow-slate-800 dark:hover:shadow-slate-500
-              hover:scale-105
+              rounded drop-shadow-md
+              hover:drop-shadow-deep hover:scale-105
               transition duration-500 ease-in-out`,
             caption: 'flex flex-col mt-2 pt-2'
            }}

@@ -36,7 +36,7 @@
             link
             light />
           <Figure
-            class="drop-shadow hover:drop-shadow-md"
+            class="drop-shadow-md hover:drop-shadow-sm"
             custom={{
               caption: `
               absolute bottom-1 right-1 py-1 px-2 w-8 h-8 

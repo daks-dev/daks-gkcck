@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { YandexMetrikaHit, Contacts, YandexMap } from 'daks-svelte';
+  import { onMount } from 'svelte';
+  import { Contacts, Lightbox, Sign, YandexMap, YandexMetrikaHit } from 'daks-svelte';
+  import image from '$lib/assets/images/contacts.webp?webp';
+  import thumbnail from '$lib/assets/images/contacts.webp?w=320&webp';
 
   import microdata from '$configs/microdata';
 
@@ -29,6 +32,8 @@
 
   const title = 'ГК ССК • Контакты';
   const description = 'Контакты группы компаний «ССК»';
+
+  onMount(() => document?.lazyload.update());
 </script>
 
 <YandexMetrikaHit
@@ -36,15 +41,47 @@
   {description} />
 
 <main
-  class="justify-between min-h-screen mb-0"
+  class="justify-between gap-8 min-h-screen"
   itemprop="mainContentOfPage">
   <header class="content mb-0">
     <h1 class="title">Контакты</h1>
   </header>
 
-  <Contacts
-    class="py-4"
-    {microdata} />
+  <div class="content flex flex-w items-center gap-8">
+    <Contacts
+      class="py-4 h-fit"
+      {microdata} />
 
-  <YandexMap {data} />
+    <Lightbox
+      class="relative group -sm:hidden md:shrink-0"
+      custom={{ overlay: 'overflow-offset' }}
+      title="ССК"
+      description="Группа компаний">
+      <svelte:fragment slot="thumbnail">
+        <Sign
+          class="top-2 left-5"
+          icon="ic:round-zoom-out-map"
+          dark />
+        <img
+          class="
+            mx-3
+            rounded-md drop-shadow-md
+            hover:drop-shadow-deep hover:scale-105
+            transition duration-300 ease-in-out"
+          src={thumbnail.src}
+          alt="" />
+      </svelte:fragment>
+      <img
+        src={image.src}
+        alt="" />
+    </Lightbox>
+  </div>
+
+  <div class="md:content">
+    <YandexMap
+      class="
+        h-[40vmax] border-t-4 border-slate-400
+        md:h-auto md:aspect-[5/2] md:border-4"
+      {data} />
+  </div>
 </main>

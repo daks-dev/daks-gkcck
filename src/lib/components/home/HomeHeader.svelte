@@ -89,7 +89,7 @@
 
   <h1
     class="
-        absolute bottom-[10vh] left-[7vw] 2xl:left-[12vw]
+        absolute bottom-[7vh] left-[7vw] lg:bottom-[10vh] 2xl:left-[12vw]
         flex flex-col gap-4
         font-black tracking-wider text-shadow--home
         text-gray-700 dark:text-neutral-300
@@ -117,7 +117,7 @@
     <button
       on:click={handlePoster}
       class="
-        absolute bottom-[4vh] right-[4vw]
+        absolute bottom-[4vh] right-[4vw] lg:right-[3vw] 2xl:right-[2vw]
         drop-shadow-deep opacity-50 hover:opacity-100
         transition duration-300"
       class:rotate-45={!poster}

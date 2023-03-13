@@ -32,7 +32,7 @@
 
 <div
   class="
-    content mb-4
+    content mb-4 overflow-hidden
     flex items-center gap-4">
   <span class="p-1.5 mr-auto">[{projects.length}]</span>
   <button
@@ -95,7 +95,7 @@
           class="
             overflow-hidden
             rounded border border-slate-400
-            drop-shadow-deep group-hover:drop-shadow-hard
+            drop-shadow-deep group-hover:drop-shadow-md
             transition duration-300 ease-in-out
             pointer-events-none"
           custom={{
@@ -124,7 +124,7 @@
           group px-2 py-4
           grid grid-cols-[32px_minmax(0,_1fr)_96px] md:grid-cols-[32px_256px_minmax(0,_1fr)_96px] items-center
           odd:bg-slate-400/25 dark:even:bg-slate-700/25
-          hover:bg-slate-400 dark:hover:bg-slate-700"
+          hover:bg-slate-400 dark:hover:bg-slate-700 hover:drop-shadow-md"
         href={`/portfolio/${id.toString().padStart(3, '0')}`}>
         <small>{idx + 1}</small>
         <span

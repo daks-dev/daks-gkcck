@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { YandexMetrikaHit, Figure, audio } from 'daks-svelte';
-  import image from '$lib/content/images/team.jpg?w=320&webp';
+  import image from '$lib/assets/images/team.jpg?w=320&webp';
   import Card from './Card.svelte';
 
   const title = 'ГК ССК • Вакансии';
@@ -38,7 +38,7 @@
 
     <hr class="my-7 border-brand" />
 
-    <h2 class="mb-7 text-accent text-xl">
+    <h2 class="mb-7 text-xl text-brand">
       Наша Компания заинтересована в талантливых, ответственных и способных работать в команде
       сотрудников!
     </h2>

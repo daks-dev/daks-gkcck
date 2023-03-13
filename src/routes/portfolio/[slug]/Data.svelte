@@ -72,7 +72,7 @@
 
   {#if customer}
     <a
-      class="relative w-fit group hover:drop-shadow-md"
+      class="relative w-fit group drop-shadow-md hover:drop-shadow-sm"
       href="/partners/{customer.id.toString().padStart(3, '0')}">
       <Sign
         class="top-0 left-full ml-1"
