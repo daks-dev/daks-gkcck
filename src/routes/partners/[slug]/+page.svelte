@@ -34,7 +34,7 @@
   </header>
 
   <div
-    class="content mb-2 flex gap-16 text-accent">
+    class="content mb-2 flex gap-8 text-accent">
     <a
       class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
       href="/partners/{prev.id.toString().padStart(3, '0')}"

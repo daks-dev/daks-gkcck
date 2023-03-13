@@ -46,22 +46,22 @@
   </header>
 
   <div
-    class="content flex gap-16 text-accent">
+    class="content flex gap-8 text-accent">
     <a
-      class="py-2 hover:text-sky-600 hover:drop-shadow-deep"
+      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
       href="/portfolio/{prev.id.toString().padStart(3, '0')}"
       title={prev.name}>
       <Icon
-        class="w-8 h-8 shrink-0"
+        class="w-8 h-8"
         icon="ic:round-forward"
         hFlip />
     </a>
     <a
-      class="py-2 hover:text-sky-600 hover:drop-shadow-deep"
+      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
       href="/portfolio/{next.id.toString().padStart(3, '0')}"
       title={next.name}>
       <Icon
-        class="w-8 h-8 shrink-0"
+        class="w-8 h-8"
         icon="ic:round-forward" />
       </a>
   </div>

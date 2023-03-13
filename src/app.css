@@ -72,7 +72,7 @@
 
   .title {
     @apply after:content-null after:block after:mt-2
-           after:w-[20vw] xs:after:w-[15vw] sm:after:w-[10vw] xl:after:w-[7vw] after:h-[5px]
+           after:w-[132px] after:h-[5px]
            after:bg-accent;
   }
 }
