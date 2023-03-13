@@ -27,11 +27,12 @@
         start: 0.5,
         opacity: 0,
         duration: 2000,
-        delay: 1000,
+        delay: 75,
         easing: sineIn
       }
     : {
         duration: 700,
+        delay: 75,
         easing: sineIn
       };
 

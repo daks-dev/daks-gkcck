@@ -41,7 +41,7 @@
   {description} />
 
 <main
-  class="justify-between gap-8 min-h-screen"
+  class="justify-between gap-8 min-h-screen -md:mb-0"
   itemprop="mainContentOfPage">
   <header class="content mb-0">
     <h1 class="title">Контакты</h1>

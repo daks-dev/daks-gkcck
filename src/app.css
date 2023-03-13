@@ -79,13 +79,13 @@
 
 main,
 [role='main'] {
-  @apply flex flex-col mb-4;
+  @apply flex flex-col mb-8;
   padding-top: var(--navbar-height);
 }
 main > header,
 [role='main'] > header {
   @apply pt-4 sm:pt-5 md:pt-8
-         mb-12 lg:mb-14;
+         mb-8 lg:mb-12;
 }
 
 /* home */

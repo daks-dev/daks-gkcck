@@ -6,12 +6,7 @@
   import type { PageData } from './$types';
   export let data: PageData;
   const { project, customer, images, thumbnails } = data;
-  const {
-    name,
-    location,
-    title,
-    description
-  } = project;
+  const { name, location, title, description } = project;
 
   const geometry = location.split(', ').map((x: string) => Number(x));
 
@@ -43,7 +38,9 @@
   title="ГК ССК • {title || name}"
   description={description || `ГК ССК : ${title || name}`} />
 
-<main itemprop="mainContentOfPage">
+<main
+  class="-md:mb-0"
+  itemprop="mainContentOfPage">
   <header class="content">
     <h1 class="title">{name}</h1>
   </header>
@@ -61,7 +58,11 @@
       {thumbnails} />
   </div>
 
-  <YandexMap
-    class="content aspect-[5/2] border-4 border-slate-400"
-    data={geodata} />
+  <div class="md:content">
+    <YandexMap
+      class="overflow-hidden
+        h-[40vmax] border-t-4 border-slate-400
+        md:h-auto md:aspect-[5/2] md:border-4"
+      data={geodata} />
+  </div>
 </main>
