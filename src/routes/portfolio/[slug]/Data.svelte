@@ -23,8 +23,7 @@
 </script>
 
 <div
-  class="
-    flex flex-col gap-4 md:gap-8">
+  class="flex flex-col gap-4 md:gap-8">
   <dl class="flex flex-col gap-y-4">
     {#if address}
       <div class="flex flex-wrap gap-x-2">
@@ -88,7 +87,7 @@
     </a>
   {:else}
     <img
-      class="h-24 sm:h-32 md:h-40 w-auto max-w-none drop-shadow-deep"
+      class="mr-auto h-20 sm:h-24 md:h-28 w-auto drop-shadow-deep"
       src={logo}
       alt="" />
   {/if}

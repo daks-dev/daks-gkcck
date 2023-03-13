@@ -14,7 +14,7 @@
 
 <LightboxList
   tag="aside"
-  class="flex flex-wrap justify-end gap-8 grow"
+  class="flex flex-col items-center gap-8 min-w-fit"
   custom={{ overlay: 'overflow--offset' }}
   options={{ behaviour: 'loop' }}
   loader={() => document?.lazyload.update()}>
@@ -33,8 +33,8 @@
           class="flex flex-col items-center"
           custom={{
             image: `
-              rounded drop-shadow-md
-              hover:drop-shadow-deep hover:scale-105
+              rounded drop-shadow-deep
+              hover:drop-shadow-hard hover:scale-105
               transition duration-500 ease-in-out`,
             caption: 'flex flex-col mt-2 pt-2'
            }}

@@ -28,10 +28,12 @@
     <div
       class="
         content mb-8
-        flex flex-wrap justify-around gap-y-4 gap-x-2">
+        flex flex-wrap justify-around gap-8">
       {#each activity.links as { href, label }}
         <ActivityCard
-          class="w-96 aspect-video hover:bg-slate-500/25"
+          class="
+            w-96 aspect-video drop-shadow-deep
+            hover:drop-shadow-md hover:bg-slate-300/25"
           href="/activity{href}">
           <h4
             slot="title"

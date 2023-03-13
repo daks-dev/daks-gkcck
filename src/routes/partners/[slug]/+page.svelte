@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { YandexMetrikaHit, Icon, Figure } from 'daks-svelte';
+  import { Figure, Icon, YandexMetrikaHit } from 'daks-svelte';
   import { ProjectsList } from '$lib/components';
   import { sources as logotypes } from '$lib/content/partners/images';
 
   import type { PageData } from './$types';
   export let data: PageData;
 
-  const { partner, projects } = data;
+  const { partner, next, prev, projects } = data;
   const {
     id,
     name,
@@ -29,9 +29,30 @@
   description={description || `ГК ССК : ${title || name}`} />
 
 <main itemprop="mainContentOfPage">
-  <header class="content">
+  <header class="content mb-1">
     <h1 class="title">{name}</h1>
   </header>
+
+  <div
+    class="content mb-2 flex gap-16 text-accent">
+    <a
+      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
+      href="/partners/{prev.id.toString().padStart(3, '0')}"
+      title={prev.name}>
+      <Icon
+        class="w-8 h-8"
+        icon="ic:round-forward"
+        hFlip />
+    </a>
+    <a
+      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
+      href="/partners/{next.id.toString().padStart(3, '0')}"
+      title={next.name}>
+      <Icon
+        class="w-8 h-8"
+        icon="ic:round-forward" />
+    </a>
+  </div>
 
   <div class="content flex -sm:flex-col gap-8">
     <Figure
