@@ -53,9 +53,9 @@
   </div>
 
   <section class="content readable">
-    <h1 class="text-center uppercase">Допуски СРО</h1>
+    <h1 class="mb-4 text-center uppercase">Допуски СРО</h1>
 
-    <div class="grid sm:grid-cols-[240px_minmax(0,_1fr)] gap-y-8 gap-x-5 items-center">
+    <div class="grid sm:grid-cols-[240px_minmax(0,_1fr)] gap-5 items-center">
       <h2 class="col-span-full uppercase">Строительство:</h2>
       <img
         class="
@@ -69,7 +69,7 @@
         alt=""
         decoding="async"
         loading="lazy" />
-      <p class="-sm:-mt-6">
+      <p class="-sm:-mt-4">
         Ассоциация «Саморегулируемая организация «Объединение строительных организаций «Эксперт
         Строй» <span class="whitespace-nowrap font-semibold">№ СРО-С-265-253-7715093478.01</span>
       </p>
@@ -85,7 +85,7 @@
         alt=""
         decoding="async"
         loading="lazy" />
-      <p class="-sm:-mt-6">
+      <p class="-sm:-mt-4">
         Ассоциация «Саморегулируемая организация «Объединение подрядных организаций»
         <span class="whitespace-nowrap font-semibold">№ СРО-С-185-26012010</span>
       </p>
@@ -103,7 +103,7 @@
         alt=""
         decoding="async"
         loading="lazy" />
-      <p class="-sm:-mt-6">
+      <p class="-sm:-mt-4">
         Ассоциация «Саморегулируемая организация «Объединение проектных организации»
         <span class="whitespace-nowrap font-semibold">№ СРО-П-120-18012010</span>
       </p>
@@ -121,7 +121,7 @@
         alt=""
         decoding="async"
         loading="lazy" />
-      <p class="-sm:-mt-6">
+      <p class="-sm:-mt-4">
         Ассоциация Саморегулируемая организация «Объединение изыскательских организаций
         транспортного комплекса»
         <span class="whitespace-nowrap font-semibold">№ СРО-И-023-14012010</span>
@@ -133,7 +133,7 @@
 
 
   <section class="content readable">
-    <h1 class="mb-8 text-center uppercase">Сертификаты и лицензии</h1>
+    <h1 class="mb-4 text-center uppercase">Сертификаты и лицензии</h1>
 
     <h4 class="mb-2">
       Сертификат соответствия системы менеджмента качества
@@ -193,7 +193,7 @@
   </section>
 
   <section class="content readable">
-    <h1 class="mb-8 text-center uppercase">Аккредитации</h1>
+    <h1 class="mb-4 text-center uppercase">Аккредитации</h1>
 
     <div class="flex -md:flex-wrap justify-around gap-8">
       <div>
@@ -228,7 +228,7 @@
   </section>
 
   <section class="content readable">
-    <h1 class="mb-8 text-center uppercase">Учебный центр</h1>
+    <h1 class="mb-4 text-center uppercase">Учебный центр</h1>
 
     <ul class="lg:text-lg">
       <li>
@@ -251,7 +251,7 @@
   </section>
 
   <section class="content readable">
-    <h1 class="mb-8 text-center uppercase">Работа с НИУ МГСУ</h1>
+    <h1 class="mb-4 text-center uppercase">Работа с НИУ МГСУ</h1>
 
     <p class="text-justify">
       С 2021 года ГК&nbsp;ССК входит в попечительский совет НИУ&nbsp;МГСУ в состав Попечительского

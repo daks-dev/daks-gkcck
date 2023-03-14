@@ -27,7 +27,7 @@
       которая работает, применяя
       <em
         class="
-          w-full mt-2
+          w-full mt-4
           flex justify-center gap-1 sm:gap-2 lg:ga-4 2xl:gap-8
           not-italic xs:text-lg sm:text-xl sm:tracking-wider lg:tracking-widest">
         <span class="first-letter:text-brand">Современные</span>
@@ -36,14 +36,14 @@
       </em>
     </p>
 
-    <hr class="my-7 border-brand" />
+    <hr class="my-8 border-brand" />
 
-    <h2 class="mb-7 text-xl text-brand">
+    <h2 class="mb-4 text-xl text-brand">
       Наша Компания заинтересована в талантливых, ответственных и способных работать в команде
       сотрудников!
     </h2>
 
-    <div class="flex sm:justify-around gap-4 mb-16">
+    <div class="flex sm:justify-around gap-4">
       <div>
         <h4 class="mb-1">Работа в ГК ССК это:</h4>
         <ul class="ml-2">
@@ -62,6 +62,8 @@
         custom={{ image: 'h-full object-cover' }}
         data={image} />
     </div>
+
+    <hr class="my-8 border-brand" />
 
     <h2 class="mb-8 text-center">
       Открытые вакансии на данный момент:

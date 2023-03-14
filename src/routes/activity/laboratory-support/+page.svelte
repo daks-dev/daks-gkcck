@@ -15,7 +15,7 @@
   </header>
 
   <div class="content readable">
-    <ul class="pseudo before:text-brand mb-16 lg:text-lg ">
+    <ul class="pseudo mb-8 before:text-brand lg:text-lg">
       <li>
         Лабораторный контроль качества строительно-монтажных материалов в том числе сварочных работ.
       </li>
