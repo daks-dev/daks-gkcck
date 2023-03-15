@@ -1,6 +1,6 @@
 <script lang="ts">
   import { DEV } from 'esm-env';
-  import { Icon } from 'daks-svelte';
+  import { AppHead, Icon } from 'daks-svelte';
   import Bundle from './Bundle.svelte';
 
   import type { PageData } from './$types';
@@ -11,29 +11,32 @@
 
   const upload = async () => {
     waiting = true;
-    const response = await fetch('/admin/iconify/upload', {
-      method: 'GET',
-      headers: {
-        accept: 'application/json'
-      },
-      body: undefined
-    });
+    const response = await fetch('/admin/iconify/upload');
     if (response.ok) {
       iconset = await response.json();
     } else alert('Ошибка HTTP: ' + response.status);
     setTimeout(() => (waiting = false), 300);
   };
+
+  const robots = 'noindex, follow';
+  const title = 'ГК ССК • Admin [ Iconify ]';
 </script>
 
-<svelte:head>
-  <meta
-    name="robots"
-    content="noindex, follow" />
-  <title>DAKS • Iconify</title>
-</svelte:head>
+<AppHead
+  {robots}
+  {title} />
 
 <main>
-  <header class="content flex items-center gap-8">
+  <header class="content flex items-center gap-x-4">
+    <a
+      class="
+        text-slate-500 hover:text-sky-600 hover:scale-125
+        transition duration-300 ease-in-out"
+      href="/admin">
+      <Icon
+        class="w-12 h-12 drop-shadow-md"
+        icon="ic:outline-settings" />
+    </a>
     <h1 class="title grow">Iconify</h1>
     <a
       rel="noreferrer nofollow"
@@ -55,7 +58,7 @@
         type="button"
         class="px-3 py-2 mx-2 border-2 rounded"
         disabled={waiting}>
-        ICONSET UPLOAD
+        UPLOAD
       </button>
       {#if waiting}
         <Icon

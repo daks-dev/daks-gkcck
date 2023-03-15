@@ -1,104 +1,108 @@
 <script lang="ts">
   import { DEV } from 'esm-env';
-  import { Icon } from 'daks-svelte';
-
-  //import type { PageData } from './$types';
-  //export let data: PageData;
+  import { AppHead, Icon, SvelteKit } from 'daks-svelte';
 
   let waiting = false;
-  let imageset: any = {};
+  let data: any;
 
-  const images = async () => {
+  const imagetools = async () => {
     waiting = true;
-    const response = await fetch('/admin/images', {
-      method: 'GET',
-      headers: {
-        accept: 'application/json'
-      },
-      body: undefined
-    });
+    const response = await fetch('/admin/imagetools');
     if (response.ok) {
-      imageset = await response.json();
+      data = await response.json();
     } else alert('Ошибка HTTP: ' + response.status);
     setTimeout(() => (waiting = false), 300);
   };
 
-  const portfolio = async () => {
+  const sqlite = async () => {
     waiting = true;
-    const response = await fetch('/admin/portfolio', {
-      method: 'GET'
-    });
+    const response = await fetch('/admin/sqlite');
     if (response.ok) {
-      // imageset = await response.json();
+      data = await response.json();
     } else alert('Ошибка HTTP: ' + response.status);
     setTimeout(() => (waiting = false), 300);
   };
+
+  const robots = 'noindex, follow';
+  const title = 'ГК ССК • Admin';
 </script>
 
-<svelte:head>
-  <meta
-    name="robots"
-    content="noindex, follow" />
-  <title>DAKS • Admin</title>
-</svelte:head>
+<AppHead
+  {robots}
+  {title} />
 
 <main>
-  <header class="content flex items-center gap-8">
-    <h1 class="title grow">Admin</h1>
+  <header class="content flex items-center gap-8 mb-4">
+    {#if DEV}
+      <h1 class="title grow">Admin</h1>
+    {:else}
+      <div class=" grow">
+        <h1 class="title mb-4">SvelteKit</h1>
+        <h4 class="font-semibold text-gray-400">tailwindcss</h4>
+      </div>
+    {/if}
     <a
       rel="noreferrer nofollow"
-      class="w-24 sm:w-32 hover:scale-110
-             transition-all duration-300 ease-in-out"
-      href="https://github.com/daks-dev/daks.git"
+      class="
+        w-24 sm:w-32 drop-shadow-md hover:drop-shadow-deep hover:scale-105
+        transition duration-300 ease-in-out"
+      href="https://github.com/daks-dev/daks-skm"
       target="_blank">
       <img
         class="w-full h-auto"
         src="/icons/github.svg"
-        alt="GitHUB" />
+        alt="GitHUB"
+        decoding="async"
+        loading="lazy" />
     </a>
   </header>
 
-  <div class="content flex justify-start gap-16 items-center">
-    <a
-      class="button px-3 py-2 mx-2 border-2 rounded text-xl"
-      class:disabled={waiting}
-      href="/admin/iconify">
-      Iconify
-    </a>
-
-    {#if DEV}
-      <button
-        on:click|preventDefault={images}
-        type="button"
-        class="button px-3 py-2 mx-2 border-2 rounded text-xl"
-        disabled={waiting}>
-        Images
-      </button>
-      <button
-        on:click|preventDefault={portfolio}
-        type="button"
-        class="button px-3 py-2 mx-2 border-2 rounded text-xl"
-        disabled={waiting}>
-        Portfolio
-      </button>
-      {#if waiting}
-        <Icon
-          icon="svg-spinners:180-ring-with-bg"
-          class="w-8 h-8" />
-      {/if}
-    {/if}
-  </div>
-
-  {#if !waiting}
-    <div class="content flex justify-start gap-8">
-      {#each Object.keys(imageset) as key}
-        <div class="flex flex-col">
-          <b class="font-mono text-xl text-slate-500">{key}</b>
-          {#each imageset[key] as el}
-            <span>{el}</span>
+  {#if DEV}
+    <div class="content flex">
+      <div class="flex flex-col gap-8 text-2xl pr-8 border-r-2">
+        <a
+          class="button max-w-full rounded border"
+          class:disabled={waiting}
+          href="/admin/iconify">
+          Iconify
+        </a>
+        <button
+          on:click|preventDefault={imagetools}
+          class="button max-w-full rounded border"
+          type="button"
+          disabled={waiting}>
+          Imagetools
+        </button>
+        <button
+          on:click|preventDefault={sqlite}
+          class="button max-w-full rounded border"
+          type="button"
+          disabled={waiting}>
+          SQLite
+        </button>
+      </div>
+      <div class="flex grow gap-8">
+        {#if waiting}
+          <Icon
+            icon="svg-spinners:180-ring-with-bg"
+            class="w-20 h-20 mx-auto self-center" />
+        {:else if data}
+          {#each Object.keys(data) as key}
+            <div class="flex flex-col">
+              <b class="font-mono text-xl text-slate-500">{key}</b>
+              {#each data[key] as el}
+                <span>{el}</span>
+              {/each}
+            </div>
           {/each}
-        </div>
-      {/each}
+        {:else}
+          <Icon
+            icon="ic:round-close"
+            class="w-20 h-20 mx-auto self-center" />
+        {/if}
+      </div>
     </div>
+  {:else}
+    <SvelteKit class="content items-center" />
   {/if}
 </main>

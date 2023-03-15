@@ -1,7 +1,6 @@
 <script lang="ts">
   import classNames from 'classnames';
-  import { Icon } from 'daks-svelte';
-  import { Sign } from '$lib/components';
+  import { Icon, Sign } from 'daks-svelte';
 
   let className: any = 'max-w-xs';
   export { className as class };

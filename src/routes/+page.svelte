@@ -1,12 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { YandexMetrikaHit } from 'daks-svelte';
+  import { Sign, YandexMetrikaHit } from 'daks-svelte';
   import {
     ActivityCard,
     HomeHeader,
     PartnersCarousel,
     ProjectsCarousel,
-    Sign,
     YandexMap
   } from '$lib/components';
 

@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { Figure } from 'daks-svelte';
-  import { Sign } from '$lib/components';
+  import { Figure, Sign } from 'daks-svelte';
   import { sources as logotypes } from '$lib/content/partners/images';
 
   import microdata from '$configs/microdata';

@@ -3,9 +3,9 @@
     Figure,
     LightboxList,
     LightboxModal,
-    LightboxThumbnail
+    LightboxThumbnail,
+    Sign
   } from 'daks-svelte';
-  import { Sign } from '$lib/components';
   import type { DataImage } from 'daks-svelte/types';
 
   export let images: DataImage[];

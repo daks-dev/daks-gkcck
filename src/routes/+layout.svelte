@@ -2,6 +2,7 @@
   import { BROWSER } from 'esm-env';
   import {
     lazyload,
+    AppHead,
     Footer,
     NavbarKit,
     RouteTransition,
@@ -17,37 +18,15 @@
 
   import { app, nav } from '$configs';
 
-  if (BROWSER) {
-    if (
-      localStorage.getItem('color-theme') === 'dark'
-      // || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      // localStorage.setItem('color-theme', 'dark');
-      document.documentElement.classList.add('dark');
-    }
-    document.lazyload ??= lazyload();
-  }
+  if (BROWSER) document.lazyload ??= lazyload();
 </script>
 
-<svelte:head>
-  <meta
-    name="theme-color"
-    content={app.themeColor} />
-  <meta
-    name="msapplication-TileColor"
-    content={app.tileColor} />
-  <meta
-    name="application-name"
-    content={app.shortName} />
-  <meta
-    name="apple-mobile-web-app-title"
-    content={app.shortName} />
-</svelte:head>
+<AppHead {app} />
 
 <RouteTransition
+  class="flex flex-col grow"
   referesh={data.referesh}
-  mode={1}
-  class="flex flex-col grow">
+  mode={1}>
   <slot />
 </RouteTransition>
 

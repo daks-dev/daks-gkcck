@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { YandexMetrikaHit, Figure } from 'daks-svelte';
-  import { Sign } from '$lib/components';
+  import { Figure, Sign, YandexMetrikaHit } from 'daks-svelte';
+  import {  } from '$lib/components';
   import { squares as images } from '$lib/content/partners/images';
 
   import type { PageData } from './$types';

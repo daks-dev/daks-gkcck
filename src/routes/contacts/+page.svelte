@@ -47,7 +47,7 @@
     <h1 class="title">Контакты</h1>
   </header>
 
-  <div class="content flex flex-w items-center gap-8">
+  <div class="content flex justify-around items-center gap-8">
     <Contacts
       class="py-4 h-fit"
       {microdata} />

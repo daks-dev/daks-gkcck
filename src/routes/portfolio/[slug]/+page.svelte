@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { Icon, YandexMetrikaHit, YandexMap } from 'daks-svelte';
-  import Aside from './Aside.svelte';
+  import { LightboxKit, YandexMetrikaHit, YandexMap } from 'daks-svelte';
+  import List from '$lib/components/list/List.svelte';
+  // import Aside from './Aside.svelte';
   import Data from './Data.svelte';
 
   import type { PageData } from './$types';
@@ -45,26 +46,10 @@
     <h1 class="title">{name}</h1>
   </header>
 
-  <div
-    class="content flex gap-8 text-accent">
-    <a
-      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
-      href="/portfolio/{prev.id.toString().padStart(3, '0')}"
-      title={prev.name}>
-      <Icon
-        class="w-8 h-8"
-        icon="ic:round-forward"
-        hFlip />
-    </a>
-    <a
-      class="p-2 hover:text-sky-600 hover:drop-shadow-deep"
-      href="/portfolio/{next.id.toString().padStart(3, '0')}"
-      title={next.name}>
-      <Icon
-        class="w-8 h-8"
-        icon="ic:round-forward" />
-      </a>
-  </div>
+  <List
+    base="/portfolio"
+    {next}
+    {prev} />
 
   <div
     class="
@@ -74,9 +59,22 @@
       {project}
       {customer} />
 
-    <Aside
+    <!--Aside
       {images}
-      {thumbnails} />
+      {thumbnails} /-->
+
+    <LightboxKit
+      tag="aside"
+      class="flex flex-col items-center gap-8 min-w-fit"
+      custom={{ overlay: 'overflow-offset' }}
+      options={{ behaviour: 'loop' }}
+      {images}
+      {thumbnails}
+      sign
+      centered
+      rounded
+      shadow
+      scale />
   </div>
 
   <div class="md:content">

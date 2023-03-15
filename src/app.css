@@ -85,7 +85,7 @@ main,
 main > header,
 [role='main'] > header {
   @apply pt-4 sm:pt-5 md:pt-8
-         mb-8 lg:mb-12;
+         mb-8;
 }
 
 /* home */

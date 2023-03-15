@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { blur, fade } from 'svelte/transition';
-  import { sineIn, sineOut } from 'svelte/easing';
   import { beforeUpdate, afterUpdate } from 'svelte';
-  import { scroll, Icon, Figure } from 'daks-svelte';
-  import { Sign, YandexMap } from '$lib/components';
+  import { sineIn, sineOut } from 'svelte/easing';
+  import { blur, fade } from 'svelte/transition';
+  import { scroll, Icon, Figure, Sign } from 'daks-svelte';
+  import { YandexMap } from '$lib/components';
   import { squares as images } from '$lib/content/portfolio/images';
 
   export let projects: Project[];
